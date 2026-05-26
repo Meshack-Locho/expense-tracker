@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# handling custom rewrites
+RewriteRule ^att/attendance/([a-zA-Z0-9_-]+)$ att/attendance.php?t=$1 [L,QSA]
+RewriteRule ^inv/invoice_details/([a-zA-Z0-9_-]+)$ inv/invoice_details.php?n=$1 [L,QSA]
+RewriteRule ^inv/cn_dets/([a-zA-Z0-9_-]+)$ inv/cn_dets.php?cn=$1 [L,QSA]
+
+#removing .php extension for root + subfolders
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# #  error pages
+ErrorDocument 404 /err/404.php
+ErrorDocument 500 /err/505.php

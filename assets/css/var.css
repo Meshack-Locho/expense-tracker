@@ -1,0 +1,29 @@
+:root {
+    /*index page*/
+    --primary: #0f172a;
+    --secondary: #1e293b;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --light: #f8fafc;
+    --border: #e2e8f0;
+    --danger: #dc2626;
+    --radius: 10px;
+    --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    --transition: 0.3s ease;
+    --font-main: 'Segoe UI', sans-serif;
+
+    /*index page*/
+
+    /*Dash*/
+
+    --pri-col: #00e1ff;
+    --sec-col: #00df94;
+    --accent-dark: #008ac0;
+    --warning: #f08800;
+    --text: #001214;
+    --n-fam: Inter;
+    --h-fam: Roboto;
+    --hover-col: #00ccff;
+    --error: #d93025;
+    --success: #34a853;
+}

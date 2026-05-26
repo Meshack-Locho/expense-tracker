@@ -1,0 +1,66 @@
+[
+    {
+        "customer_id": 1,
+        "id": "ORD-001",
+        "date": "2026-02-25",
+        "status": "Pending",
+        "total": 1440,
+        "items": [
+            {
+                "id": "KV-001",
+                "name": "Fanta Orange 500ml",
+                "unit": "bottle",
+                "price": 72,
+                "quantity": 20
+            }
+        ]
+    },
+    {
+        "customer_id": 1,
+        "id": "ORD-002",
+        "date": "2026-02-25",
+        "status": "Pending",
+        "total": 4050,
+        "items": [
+            {
+                "id": "KV-002",
+                "name": "Coca-Cola 1.5L",
+                "unit": "bottle",
+                "price": 135,
+                "quantity": 30
+            }
+        ]
+    },
+    {
+        "customer_id": 1,
+        "id": "ORD-003",
+        "date": "2026-02-25",
+        "status": "Pending",
+        "total": 4455,
+        "items": [
+            {
+                "id": "KV-002",
+                "name": "Coca-Cola 1.5L",
+                "unit": "bottle",
+                "price": 135,
+                "quantity": 33
+            }
+        ]
+    },
+    {
+        "customer_id": 1,
+        "id": "ORD-004",
+        "date": "2026-02-25",
+        "status": "Pending",
+        "total": 2970,
+        "items": [
+            {
+                "id": "KV-002",
+                "name": "Coca-Cola 1.5L",
+                "unit": "bottle",
+                "price": 135,
+                "quantity": 22
+            }
+        ]
+    }
+]

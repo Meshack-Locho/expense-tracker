@@ -1,0 +1,4 @@
+[27-Feb-2026 14:01:09 UTC] PHP Warning:  Undefined array key "type" in /home2/devurete/public_html/b2b/dashboard.php on line 9
+[27-Feb-2026 14:01:09 UTC] PHP Warning:  Undefined array key "customer_id" in /home2/devurete/public_html/b2b/dashboard.php on line 15
+[01-Mar-2026 18:11:44 UTC] PHP Warning:  Undefined array key "type" in /home2/devurete/public_html/b2b/dashboard.php on line 9
+[01-Mar-2026 18:11:44 UTC] PHP Warning:  Undefined array key "customer_id" in /home2/devurete/public_html/b2b/dashboard.php on line 15

@@ -1,0 +1,304 @@
+@import url(../var.css);
+.productTable_length{
+    max-width: 50%;
+    width: 200px;
+}
+
+
+.dataTables_wrapper .dataTables_length{
+    max-width: 100%;
+    width: 200px;
+    font-size: 13px;
+    padding: 10px 0;
+    font-family: var(--n-fam);
+}
+
+.dataTables_wrapper .dataTables_length label, .dataTables_wrapper .dataTables_filter label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.dataTables_filter{
+    max-width: 100%;
+    width: 200px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    float: right;
+}
+
+.dataTables_wrapper .dataTables_filter input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 2px;
+    
+}
+
+.dataTables_wrapper .dataTables_length select{
+    max-width: 50%;
+    padding: 13px;
+}
+
+
+table.dataTable>tbody>tr.child ul.dtr-details>li:last-child .actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+
+.small-inputs{
+    width: 80px !important;
+}
+
+.action-btns{
+    height: 100%;
+}
+
+.action-btns .actions{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.tbl-actions{
+    padding: 14px;
+    border-radius: 3px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(241, 241, 241, 0.5);
+}
+
+.tbl-actions.hidden{
+    display: none !important;
+}
+
+.tbl-actions.cart .small-loader{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    animation: moveRound .5s infinite ease forwards;
+}
+
+@keyframes moveRound  {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+.tbl-actions.delete, .tbl-actions.reject{
+    background-color: var(--error);
+}
+
+.tbl-actions.cart, .tbl-actions.cart-up, .tbl-actions.download, .tbl-actions.approve, .tbl-actions.credit{
+    background-color: var(--success);
+}
+
+.action-btns .view-btn, .tbl-actions.view-btn, .tbl-actions.retry {
+    background-color: var(--accent);
+}
+
+.tbl-actions{
+    position: relative;
+}
+
+.tbl-actions::before{
+    position: absolute;
+    top: -120%;
+    border-radius: 3px;
+    pointer-events: none;
+    right: -100%;
+    padding: 5px 3px;
+    height: 17px;
+    background-color: #000;
+    text-align: center;
+    width: 80px;
+    text-wrap: wrap;
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s ease;
+}
+
+
+.tbl-actions:hover::before{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.tbl-actions.edit::before{
+    content: 'Edit';
+}
+.tbl-actions.delete::before{
+    content: 'Delete';
+}
+.tbl-actions.view::before{
+    content: 'View';
+}
+.tbl-actions.cart::before{
+    content: 'Add to Cart';
+}
+.tbl-actions.cart-up::before{
+    content: 'Update Qty';
+}
+.tbl-actions.download::before{
+    content: 'Download';
+}
+.tbl-actions.approve::before{
+    content: 'Approve';
+}
+.tbl-actions.reject::before{
+    content: 'Reject';
+}
+.tbl-actions.retry::before{
+    content: 'Retry Sync';
+}
+.tbl-actions.return::before{
+    content: 'Return Items';
+}
+.tbl-actions.credit::before{
+    content: 'Credit';
+}
+
+.tbl-actions.edit, .tbl-actions.update, .tbl-actions.return{
+    background-color: var(--warning);
+}
+
+
+.dataTables_wrapper .row:nth-child(1){
+    width: 100%;
+    display: flex !important;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.dataTables_wrapper .row:nth-child(1) .col-sm-6{
+    max-width: 45%;
+    width: 150px;
+}
+
+.dataTables_length, .dataTables_filter{
+    width: 100% !important;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: 1px solid rgba(0,0,0,0.05);
+    font-family: var(--n-fam);
+    font-size: 13px;
+    
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control{
+    display: flex;
+    align-items: center;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before{
+   
+    font-size: 16px;
+}
+
+
+.active-marker{
+    padding: 5px !important;
+    max-width: 90%;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.active-marker.act{
+    background-color: rgb(0, 138, 23);
+}
+.active-marker.inact{
+    background-color: rgb(138, 21, 0);
+}
+
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    background: var(--accent-dark) !important;
+    color: var(--text);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.active{
+    background-color: var(--primary) !important;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
+    cursor: not-allowed !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover a, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active a{
+    cursor: not-allowed;
+}
+
+
+
+.data-below-tbl{
+    margin-top: 30px;
+}
+
+.cart-total-order{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    width: 250px;
+}
+
+
+#orderBtn:disabled{
+    opacity: 0.7;
+    filter: grayscale(100%);
+}
+
+@media (max-width: 768px) {
+  div.dataTables_wrapper div.dataTables_length,
+  div.dataTables_wrapper div.dataTables_filter {
+    width: 100%;
+  }
+
+  div.dataTables_wrapper div.dataTables_length,
+  div.dataTables_wrapper div.dataTables_filter {
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+    margin-bottom: 10px;
+  }
+
+  div.dataTables_wrapper div.dataTables_filter input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
