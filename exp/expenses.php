@@ -20,6 +20,7 @@ require_once '../header.php';
             <table id="catTable" class="tables table table-bordered table-striped dt-responsive dataTable no-footer dtr-inline collapsed">
                 <thead>
                     <tr>
+                
                         <th>Category</th>
                         <th>Amount</th>
                         <th>Expense Date</th>
