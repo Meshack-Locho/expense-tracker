@@ -38,15 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $action = trim($_POST['action']);
 
-        if ($action === 'delete-employee') {
-            handleDelete($conn, 'tb_employees', $itemId, 'The employee was deleted successfully!', 'Employee not deleted! Please Try Again', 'e_id', 's');
-        } else if ($action === 'delete-position') {
-            handleDelete($conn, 'positions', $itemId, 'The Position was deleted successfully!', 'Position not deleted! Please Try Again', 'p_id', 'i');
-        } else if ($action === 'delete-department') {
-            handleDelete($conn, 'tb_departments', $itemId, 'The Department was deleted successfully!', 'Department Deletion Failed! Please Try Again', 'd_id', 'i');
-        }else if ($action === 'delete-station') {
-            handleDelete($conn, 'stations', $itemId, 'Station was deleted successfully.', 'Station was not deleted. Please try again!', 'station_id', 's');
-        }else{
+        if ($action === 'delete-category') {
+            handleDelete($conn, 'categories', $itemId, 'The category was deleted successfully!', 'Category not deleted! Please Try Again', 'id', 'i');
+        } else if ($action === 'delete-expense') {
+            handleDelete($conn, 'expenses', $itemId, 'Expense was deleted successfully!', 'Expense not deleted! Please Try Again', 'id', 'i');
+        } else{
             echo json_encode(['status' => 'error', 'message' => 'Action failed. Some parameters are missing. Please refresh the page and try again']);
             exit;
         }

@@ -19,7 +19,6 @@ require_once '../header.php';
             <table id="catTable" class="tables table table-bordered table-striped dt-responsive dataTable no-footer dtr-inline collapsed">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Category</th>
                         <th>Actions</th>
                     </tr>
@@ -34,13 +33,12 @@ require_once '../header.php';
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {?>
                                 <tr class="category-row item-row">
-                                    <td><?= htmlspecialchars($row['id']) ?></td>
                                     <td><?= htmlspecialchars($row['name']) ?></td>
                                     <td class="action-btns">
                                         <div class="actions">
                                             <a href="<?php echo WEB_URL;?>cats/addcat?id=<?= htmlspecialchars($row['id']) ?>" class="tbl-actions edit"><i class="fa-solid fa-pen"></i></a>
-                                            <form action="" method="post" class="prod-del-form">
-                                                <input type="hidden" name="cat_id" id="cat_id">
+                                            <form action="" method="post" class="del-form">
+                                                <input type="hidden" name="item_id" id="item_id" value="<?= htmlspecialchars($row['id']) ?>">
                                                 <input type="hidden" name="action" id="action" value="delete-category">
                                                 <button class="tbl-actions delete delete-item-btn" id="#delete-category-btn"><i class="fa-solid fa-trash"></i></button>
                                             </form>

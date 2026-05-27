@@ -158,7 +158,9 @@ $(document).ready(function () {
 
                 $(this).closest(".item-row").fadeOut(300, function () {
                     $(this).remove()
+                
                 })
+
             }
          })
 

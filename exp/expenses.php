@@ -46,10 +46,10 @@ require_once '../header.php';
                                     <td class="action-btns">
                                         <div class="actions">
                                             <a href="<?php echo WEB_URL;?>exp/addexp?id=<?= htmlspecialchars($row['id']) ?>" class="tbl-actions edit"><i class="fa-solid fa-pen"></i></a>
-                                            <form action="" method="post" class="prod-del-form">
-                                                <input type="hidden" name="cat_id" id="cat_id">
-                                                <input type="hidden" name="action" id="action" value="delete-category">
-                                                <button class="tbl-actions delete delete-item-btn" id="#delete-category-btn"><i class="fa-solid fa-trash"></i></button>
+                                            <form action="" method="post" class="del-form">
+                                                <input type="hidden" name="item_id" id="item_id" value="<?= htmlspecialchars($row['id']) ?>">
+                                                <input type="hidden" name="action" id="action" value="delete-expense">
+                                                <button class="tbl-actions delete delete-item-btn" id="#delete-exp-btn"><i class="fa-solid fa-trash"></i></button>
                                             </form>
                                         </div>
                                     </td>
