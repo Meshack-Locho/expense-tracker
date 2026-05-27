@@ -11,7 +11,7 @@ require_once 'header.php';
 $userId = (int)$_SESSION['user_id'];
 function getRecentExpenses($conn, $user){
     $userId = (int)$user;
-    $stmt = $conn->prepare("SELECT amount, category_id, description, expense_date FROM expenses WHERE user_id=?");
+    $stmt = $conn->prepare("SELECT e.id, e.category_id, e.amount, e.expense_date, e.description, c.name AS category_name FROM expenses e LEFT JOIN categories c ON e.category_id=c.id WHERE e.user_id=?");
     $stmt->bind_param("i", $userId);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -23,7 +23,7 @@ function getRecentExpenses($conn, $user){
         ];
     }
 
-    $row = $result->fetch_assoc();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
 
     return [
         'success' => true,
@@ -140,9 +140,9 @@ function getRecentExpenses($conn, $user){
             <thead>
               <tr>
                 <th>Expense</th>
+                <th>Description</th>
                 <th>Date</th>
                 <th>Amount</th>
-                <th>Description</th>
               </tr>
             </thead>
             <tbody>
@@ -151,10 +151,10 @@ function getRecentExpenses($conn, $user){
                 $expensesArray = $expenses['data'];
                 foreach ($expensesArray as $expense) { ?>
                     <tr>
-                          <td><?= htmlspecialchars($expense['category_id']) ?></td>
-                          <td><?= htmlspecialchars($expense['date']) ?></td>
+                          <td><?= htmlspecialchars($expense['category_name']) ?></td>
+                          <td><?= htmlspecialchars($expense['description']) ?></td>
+                          <td><?= htmlspecialchars($expense['expense_date']) ?></td>
                           <td><?= 'KES ' . htmlspecialchars(number_format($expense['amount'])) ?></td>
-                          <td><?= 'KES ' . htmlspecialchars($expense['description']) ?></td>
                         </tr>
                 <?php }
               ?>

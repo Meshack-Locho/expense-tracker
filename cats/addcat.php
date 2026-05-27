@@ -7,6 +7,21 @@ if(!isset($_SESSION['user_id'])){
     header('Location: '.WEB_URL.'');
 }
 
+$action = 'addCat';
+$categoryName = '';
+
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $action = 'updateItem';
+    $itemId = intval($_GET['id']);
+
+    $stmt = $conn->prepare("SELECT name FROM categories WHERE id=?");
+    $stmt->bind_param("i", $itemId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $categoryName = $row['name'];
+}
+
 require_once '../header.php';
 // echo "USER ID: " . $_SESSION['user_id'] . '<br><br>';
 // echo "USER ROLE: ".$_SESSION['role'] . '<br><br>';
@@ -18,11 +33,17 @@ require_once '../header.php';
         <div class="form-wrapper">
           
             <form action="" method="POST" enctype="multipart/form-data" class="cat-form forms addition-forms" id="addCatForm">
-                <input type="hidden" name="action" id="action" value="addCat">
+                <input type="hidden" name="action" id="action" value="<?= htmlspecialchars($action) ?>">
+                <?php
+                    if (isset($_GET['id']) && is_numeric($_GET['id'])) {?>
+                        <input type="hidden" name="item_id" id="item_id" value="<?= htmlspecialchars($_GET['id']) ?>">
+                        <input type="hidden" name="entity" id="entity" value="category">
+                    <?php }
+                ?>
                 <div class="form-group">
                     <label>Category Name</label>
                     <span class="error"></span>
-                    <input type="text" name="cat_name" id="cat_name">
+                    <input type="text" name="cat_name" id="cat_name" value="<?= htmlspecialchars($categoryName) ?>">
                 </div>
 
 
