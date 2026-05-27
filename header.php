@@ -100,6 +100,12 @@ $page = basename($_SERVER['PHP_SELF'], ".php");
             </ul>
             </li>
 
+            <li class="treeview">
+                <a href="<?php echo WEB_URL;?>income" class="active-link <?php if($page === 'income'){echo 'active';}?>">
+                    <i class="fa fa-money-bill"></i>
+                    <span>Income</span>
+                </a>
+            </li>
         
 
             

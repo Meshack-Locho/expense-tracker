@@ -126,6 +126,49 @@ function updateExpense ($conn, $expId, $userId, $amount, $catId, $description, $
 }
 
 
+function addIncome(
+    $conn,
+    $user_id,
+    $amount,
+    $source,
+    $income_date
+){
+
+    if(empty($amount) ||empty($source) || empty($income_date) || $amount <= 0){
+        return [
+            'status' => false,
+            'message' => 'Operation failed! Please fill in all the fields!'
+        ];
+    }
+
+    $stmt = $conn->prepare("
+        INSERT INTO income
+        (user_id, amount, source, income_date)
+        VALUES (?, ?, ?, ?)
+    ");
+
+    $stmt->bind_param(
+        "idss",
+        $user_id,
+        $amount,
+        $source,
+        $income_date
+    );
+
+    if ($stmt->execute()) {
+        return [
+            'status' => true,
+            'message' => 'Income added'
+        ];
+    }
+
+    return [
+        'status' => false,
+        'message' => 'Failed to add income'
+    ];
+}
+
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -169,6 +212,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             }
 
+        }else if($action === 'addIncome'){
+            $incAmount = floatval($_POST['inc_amt']);
+            $incSource = clean_input($_POST['inc_src']);
+            $incomeDate = clean_input($_POST['inc_date']);
+            $actionResult = addIncome($conn, $user_id, $incAmount, $incSource, $incomeDate);
         }
 
 
