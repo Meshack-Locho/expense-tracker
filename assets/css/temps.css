@@ -803,8 +803,13 @@ body p, a{
   gap: 10px;
 }
 
+.data-card .top h4{
+  font-size: 20px;
+}
+
 .data-card .top .main-dat{
-  font-size: 25px;
+  font-size: 20px;
+  font-family: var(--n-fam);
 }
 
 .dash-sect .data-cards-home .data-card .top i{
