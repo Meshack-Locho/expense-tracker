@@ -28,6 +28,34 @@ $(document).ready(function () {
       })
 
 
+    //DATE FILTER
+
+    $(document).on("change", '.date-filter-selectors', function(){
+        const url = new URL(window.location.href)
+
+        const month = $("#month-selector").val()
+        const year = $("#year-selector").val()
+
+        if (month) {
+            url.searchParams.set("m", month)
+        } else {
+            url.searchParams.delete("m")
+        }
+
+        if (year) {
+            url.searchParams.set("y", year)
+        } else {
+            url.searchParams.delete("y")
+        }
+
+        window.location.href = url.toString()
+    })
+
+    $(document).on("click", '.reset-d-filter-btn', function () {
+        window.location.href = window.location.pathname
+    })
+
+
       //main ajax
 
 

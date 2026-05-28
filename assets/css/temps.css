@@ -465,11 +465,11 @@ body p, a{
 
 
 .top-modal .bottom a:nth-child(1){
-    background-color: var(--accent);
+    background-color: var(--accent-dark);
 }
 
 .top-modal .bottom a:nth-child(2){
-    background-color: var(--accent);
+    background-color: var(--accent-dark);
 }
 
 .top-head-table-form{
@@ -708,6 +708,12 @@ body p, a{
 
 .date-filter input{
   max-width: 45%;
+}
+
+.date-filter .filter-handlers {
+  width: 100%;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 
@@ -1279,8 +1285,9 @@ footer a:hover{
 }
 
 thead {
-    background: var(--secondary);
+    background: var(--text);
     color: white;
+    
 }
 
 .table-wrapper th, td {

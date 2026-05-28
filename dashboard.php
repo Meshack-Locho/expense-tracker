@@ -9,8 +9,19 @@ if(!isset($_SESSION['user_id'])){
 require_once 'header.php';
 
 $userId = (int)$_SESSION['user_id'];
-$year = 2026;
-$month = 5;
+$year = date('Y');
+$month = date('m');
+
+
+
+if (isset($_GET['m']) && !empty("m")) {
+    $month = intval($_GET['m']);
+}
+
+if (isset($_GET['y']) && !empty("y")) {
+    $year = intval($_GET['y']);
+}
+
 
 $start = date("Y-m-01", strtotime("$year-$month-01"));
 $end = date("Y-m-t", strtotime("$year-$month-01"));
@@ -190,7 +201,35 @@ $lastExpDesc = $lastExp['descrption'];
 ?>
 
 <main class="main-adm main-dashboard-content">
-
+    <section class="full-sect flex-col">
+        <h4>Filter Data</h4>
+        <div class="date-filter">
+            <div class="filter-handlers form-group flex-row">
+                <select name="month" id="month-selector" class="date-filter-selectors">
+                    <option value="">Select Month</option>
+                    <option value="1" <?= $month === 1 ? 'selected' : '' ?>>January</option>
+                    <option value="2" <?= $month === 2 ? 'selected' : '' ?>>Feb</option>
+                    <option value="3" <?= $month === 3 ? 'selected' : '' ?>>March</option>
+                    <option value="4" <?= $month === 4 ? 'selected' : '' ?>>April</option>
+                    <option value="5" <?= $month === 5 ? 'selected' : '' ?>>May</option>
+                    <option value="6" <?= $month === 6 ? 'selected' : '' ?>>June</option>
+                    <option value="7" <?= $month === 7 ? 'selected' : '' ?>>July</option>
+                    <option value="8" <?= $month === 8 ? 'selected' : '' ?>>Aug</option>
+                    <option value="9" <?= $month === 9 ? 'selected' : '' ?>>Sept</option>
+                    <option value="10" <?= $month === 10 ? 'selected' : '' ?>>Oct</option>
+                    <option value="11" <?= $month === 11 ? 'selected' : '' ?>>Nov</option>
+                    <option value="12" <?= $month === 12 ? 'selected' : '' ?>>Dec</option>
+                </select>
+                <select name="year" id="year-selector" class="date-filter-selectors">
+                    <option value="">Select Year</option>
+                    <option value="2026" <?= $year === 2026 ? 'selected' : '' ?>>2026</option>
+                    <option value="2027" <?= $month === 2027 ? 'selected' : '' ?>>2027</option>
+                    <option value="2028" <?= $month === 2028 ? 'selected' : '' ?>>2028</option>
+                </select>
+                <button type="button" class="main-btns reset-d-filter-btn" style="padding: 13px 16px;">Reset</button>
+            </div>
+        </div>
+    </section>
     <section class="dash-sect full-sect flex-col">
         <div class="sect-header flex-row">
             <i class="fa-solid fa-thumbtack"></i>
@@ -208,7 +247,7 @@ $lastExpDesc = $lastExp['descrption'];
                         </div>
                         <i class="fa-solid fa-money-bill"></i>
                     </div>
-                    <a href="orders/order_history" class="bottom">More Info</a>
+                    <a href="income" class="bottom">Log Income</a>
                 </div>
                 <div class="data-card">
                     <div class="top flex-row">
@@ -233,7 +272,6 @@ $lastExpDesc = $lastExp['descrption'];
                         </div>
                         <i class="fa-solid fa-hand-holding-dollar" style="color: <?php if((int)$balance > 0){echo 'green';}else{echo 'red';}?>"></i>
                     </div>
-                    <a href="orders/approved_orders" class="bottom">More Info</a>
                 </div>
 
                 <div class="data-card">
@@ -246,7 +284,6 @@ $lastExpDesc = $lastExp['descrption'];
                         </div>
                         <i class="fa-solid fa-circle-check" style="color: green;"></i>
                     </div>
-                    <a href="orders/approved_orders" class="bottom">More Info</a>
                 </div>
 
                 <div class="data-card">
@@ -318,10 +355,12 @@ $lastExpDesc = $lastExp['descrption'];
             </tbody>
           </table>
           
-          <a href="<?= htmlspecialchars(WEB_URL) ?>orders/order_history" class="main-btns small">See all</a>
+          <a href="<?= htmlspecialchars(WEB_URL) ?>exp/expenses" class="main-btns small">See all</a>
       </div>
     </section>
 </main>
+
+
 
 
 <?php include 'footer.php';?>

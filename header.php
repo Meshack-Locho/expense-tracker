@@ -44,8 +44,7 @@ $page = basename($_SERVER['PHP_SELF'], ".php");
                             <img src="<?php echo WEB_URL;?>img/no_image.jpg" alt="profile image" class="profile-image">
                         </div>
                         <div class="bottom">
-                            <a href="<?= htmlspecialchars(WEB_URL);?>acc/profile">Profile</a>
-                            <a href="<?= htmlspecialchars(WEB_URL);?>logout.php">Logout</a>
+                            <a href="<?= htmlspecialchars(WEB_URL);?>logout">Logout</a>
                         </div>
                     </div>
                 </div>
